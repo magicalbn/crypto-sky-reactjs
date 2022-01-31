@@ -35,7 +35,7 @@ const Home = () => {
   const pagination = (
     <div className='pagination'>
       <p>page {pageNumber} of {totalPages}</p>
-      {pageNumber != 1 && <button disabled={pageNumber < 2} onClick={() => setpageNumber(1)}>&lt;&lt;</button>}
+      {pageNumber !== 1 && <button disabled={pageNumber < 2} onClick={() => setpageNumber(1)}>&lt;&lt;</button>}
       <button disabled={pageNumber < 2} onClick={() => setpageNumber(pageNumber - 1)}>&lt;</button>
       <button disabled={pageNumber > totalPages - 1} onClick={() => setpageNumber(pageNumber + 1)}>&gt;</button>
       <button disabled={pageNumber > totalPages - 1} onClick={() => setpageNumber(totalPages)}>&gt;&gt;</button>
@@ -72,7 +72,7 @@ const Home = () => {
             {pagination}
           </div>
   
-        ) : <p className='error'>Error: Some Error occured while retrieving Mart Summaries. Try again later.</p>
+        ) : <p className='error'>Error: Some Error occured while retrieving Market Summaries. Try again later.</p>
   
   
       )}
