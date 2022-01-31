@@ -1,9 +1,10 @@
 //import { useRouter } from "next/router";
 //component
+import { createContext } from "react";
 import Searchbar from "./SearchBar/SearchBar";
 
 const Navbar = () => {
-  
+ 
   return (
     <header>
       <div className="navbar container">

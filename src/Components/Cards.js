@@ -1,7 +1,12 @@
-
+import { useContext } from "react";
+import SearchContext from "./SearchBar/SearchContext";
 
 const Cards = ({ cryptoDetails }) => {
+
+    const context = useContext(SearchContext)
     
+
+
     const { Ask, Created, MarketName, PrevDay, Volume } = cryptoDetails
     let createdDate = new Date(Created);
     createdDate = createdDate.toString().split(' ').slice(1, 5).join(' ')
@@ -26,7 +31,7 @@ const Cards = ({ cryptoDetails }) => {
                 <p className="label">Volume</p>
             </div>
             <div className="details-more">
-                <button onClick={() => {  }}>More Details</button>
+                <button onClick={() => {context.setSearchFunction(MarketName)}}>More Details</button>
             </div>
 
         </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 
 
@@ -7,11 +7,16 @@ import '../src/styles/dist/styles.css'
 import reportWebVitals from './reportWebVitals';
 import Layout from './Components/Layout';
 
+
+
 ReactDOM.render(
   <React.StrictMode>
-    <Layout>
-      <Home />
-    </Layout>
+    
+      <Layout/>
+        
+      
+    
+
   </React.StrictMode>,
   document.getElementById('root')
 );

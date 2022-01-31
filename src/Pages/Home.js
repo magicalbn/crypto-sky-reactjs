@@ -1,11 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 
 import CryptoAPI from "../services/CryptoAPI";
 import Cards from "../Components/Cards";
 
+
 const Home = () => {
   const [pageNumber, setpageNumber] = useState(1)
   const [marketData, setmarketData] = useState([])
+  
+  
+ 
 
   useEffect(() => {
     const service = new CryptoAPI()

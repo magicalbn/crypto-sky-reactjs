@@ -14,7 +14,7 @@ class CryptoAPI {
     getAllCrypto = async () => {
     
         try {
-            const { data } = await axios.get(`http://localhost:4000/crypto/marketsummary`)
+            const { data } = await this.instance.get(`/marketsummary`)
             return data
         }
         catch (e){
@@ -28,12 +28,11 @@ class CryptoAPI {
     getCryptoDetails = async (query) => {
         try {
             const { data } = await this.instance.get(`/cryptodetails/${query}`)
-            if (data.success)
-                return data.result[0]
-            else return {}
+            return data
         }
-        catch {
-            return {}
+        catch (e){
+            console.log(e)
+            return []
         }
     
     }
