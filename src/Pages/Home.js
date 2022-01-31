@@ -1,22 +1,28 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 
 import CryptoAPI from "../services/CryptoAPI";
 import Cards from "../Components/Cards";
-
+import Spinner from "../Components/Spinner/Spinner"
 
 const Home = () => {
   const [pageNumber, setpageNumber] = useState(1)
+  const [isLoading, setLoading] = useState(true)
   const [marketData, setmarketData] = useState([])
-  
-  
- 
+
+
+
 
   useEffect(() => {
+    setLoading(true)
     const service = new CryptoAPI()
     service.getAllCrypto()
       .then((data) => {
+        setLoading(false)
         setmarketData(data)
       })
+      .catch = () => {
+        setLoading(false)
+      }
 
   }, [])
 
@@ -40,31 +46,37 @@ const Home = () => {
 
   return (
     <div className='container index'>
+
+     
       <h2>Market Summaries</h2>
-      {marketData.length > 0 ? (
-        <div className='crypto-table'>
 
-          {pagination}
-
-          <div className='crypto-list'>
-            {marketData.length > 0 ? (
-              <>
-                {marketData.slice(pageStart, pageEnd).map(each => {
-
-                  return (
-                    <Cards key={each.MarketName} cryptoDetails={each} />
-                  )
-                })}
-              </>
-            ) : null}
+      {isLoading?<Spinner></Spinner>:(
+        marketData.length > 0 ? (
+          <div className='crypto-table'>
+  
+            {pagination}
+  
+            <div className='crypto-list'>
+              {marketData.length > 0 ? (
+                <>
+                  {marketData.slice(pageStart, pageEnd).map(each => {
+  
+                    return (
+                      <Cards key={each.MarketName} cryptoDetails={each} />
+                    )
+                  })}
+                </>
+              ) : null}
+            </div>
+  
+            {pagination}
           </div>
-
-          {pagination}
-        </div>
-
-      ) : <p className='error'>Error: Some Error occured while retrieving Mart Summaries. Try again later.</p>}
-
-
+  
+        ) : <p className='error'>Error: Some Error occured while retrieving Mart Summaries. Try again later.</p>
+  
+  
+      )}
+      
     </div>
   );
 }

@@ -7,7 +7,7 @@ import SearchContext from './SearchContext';
 const Searchbar = ({ placeholder }) => {
     const [searchValue, setsearchValue] = useState('')
     const context = useContext(SearchContext)
-    console.log(context);
+    
 
 
     const onSearch = (e) => {

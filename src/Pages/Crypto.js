@@ -1,25 +1,32 @@
 import { useState, useEffect, useContext } from "react"
+//component
 import SearchContext from "../Components/SearchBar/SearchContext"
 import CryptoAPI from "../services/CryptoAPI"
-//api calls
+import Spinner from "../Components/Spinner/Spinner"
 
-//component
+
 
 const Crypto = ({ cryptoQuery }) => {
 
     const [cryptoData, setcryptoData] = useState({})
+    const [isLoading, setLoading] = useState(true)
     const context = useContext(SearchContext)
 
     useEffect(() => {
+        setLoading(true)
         const service = new CryptoAPI()
         service.getCryptoDetails(cryptoQuery)
             .then((data) => {
+                setLoading(false)
                 setcryptoData(data)
             })
+            .catch = () => {
+                setLoading(false)
+            }
 
     }, [cryptoQuery])
 
-   
+
 
 
     const { Ask, BaseVolume = 'NA', Bid, Created = 'NA', High, Last, Low, MarketName, OpenBuyOrders = 'NA', OpenSellOrders = 'NA', PrevDay, TimeStamp = 'NA', Volume = 'NA' } = cryptoData
@@ -42,9 +49,10 @@ const Crypto = ({ cryptoQuery }) => {
     return (
 
         <div className='container market'>
-         
-            <button onClick={()=>context.setSearchFunction('')} className='back'>&lt; Back</button>
-                {MarketName ? (
+
+            <button onClick={() => context.setSearchFunction('')} className='back'>&lt; Back</button>
+            {isLoading ? <Spinner /> : (
+                MarketName ? (
                     <div className='crypto-content'>
                         <img alt='crypto-logo' src={imageLink}></img>
                         <div className='details'>
@@ -71,7 +79,10 @@ const Crypto = ({ cryptoQuery }) => {
 
                         </div>
                     </div>
-                ) : <p className='error'>Error: No Market Summary found for '{cryptoQuery}'.</p>}
+                ) : <p className='error'>Error: No Market Summary found for '{cryptoQuery}'.</p>
+            )}
+
+
 
         </div>
 
