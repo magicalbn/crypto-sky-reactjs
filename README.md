@@ -19,8 +19,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   
 
 In the project directory, you can run:
+
  `npm client`  to run client side
+ 
  `npm server`  to run server side
+ 
  Kindly use `npm run dev`  to run client and server simultaneously.
  
 Runs the app in the development mode.\
@@ -37,3 +40,6 @@ You may also see any lint errors in the console.
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
+
+
+  
