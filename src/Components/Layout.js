@@ -10,13 +10,13 @@ import SearchContext from './SearchBar/SearchContext'
 const Layout = () => {
 
     const [searchParam, setsearchParam] = useState('')
-
+    
     return <SearchContext.Provider
         value={{
             searchValue: searchParam,
             setSearchFunction: setsearchParam
         }}>
-
+        
         <Navbar />
         {searchParam.trim().length<=0?<Home />:<Crypto cryptoQuery={searchParam}/>} 
         <Footer />

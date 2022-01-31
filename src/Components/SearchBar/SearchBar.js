@@ -1,17 +1,20 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 //icons
 import { IoIosSearch } from 'react-icons/io';
+import SearchContext from './SearchContext';
 
 
 const Searchbar = ({ placeholder }) => {
     const [searchValue, setsearchValue] = useState('')
-    
+    const context = useContext(SearchContext)
+    console.log(context);
+
+
     const onSearch = (e) => {
         e.preventDefault()
-        if (searchValue.trim().length < 1)
-            return
-        else
-            console.log(searchValue)
+        if (searchValue.trim().length >= 1)
+            context.setSearchFunction(searchValue)
+        
     }
     return (
         <form className="search-bar" onSubmit={onSearch}>

@@ -17,9 +17,9 @@ const Crypto = ({ cryptoQuery }) => {
                 setcryptoData(data)
             })
 
-    }, [])
+    }, [cryptoQuery])
 
-    console.log(cryptoData)
+   
 
 
     const { Ask, BaseVolume = 'NA', Bid, Created = 'NA', High, Last, Low, MarketName, OpenBuyOrders = 'NA', OpenSellOrders = 'NA', PrevDay, TimeStamp = 'NA', Volume = 'NA' } = cryptoData
