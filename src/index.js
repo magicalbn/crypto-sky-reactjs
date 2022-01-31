@@ -1,8 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-
-
-import Home from './Pages/Home';
 import '../src/styles/dist/styles.css'
 import reportWebVitals from './reportWebVitals';
 import Layout from './Components/Layout';
@@ -11,12 +8,7 @@ import Layout from './Components/Layout';
 
 ReactDOM.render(
   <React.StrictMode>
-    
-      <Layout/>
-        
-      
-    
-
+    <Layout />
   </React.StrictMode>,
   document.getElementById('root')
 );

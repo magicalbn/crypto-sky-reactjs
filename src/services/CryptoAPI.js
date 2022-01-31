@@ -12,12 +12,12 @@ class CryptoAPI {
     }
 
     getAllCrypto = async () => {
-    
+
         try {
             const { data } = await this.instance.get(`/marketsummary`)
             return data
         }
-        catch (e){
+        catch (e) {
             console.log(e)
             return []
         }
@@ -30,11 +30,11 @@ class CryptoAPI {
             const { data } = await this.instance.get(`/cryptodetails/${query}`)
             return data
         }
-        catch (e){
+        catch (e) {
             console.log(e)
             return []
         }
-    
+
     }
 
 }
