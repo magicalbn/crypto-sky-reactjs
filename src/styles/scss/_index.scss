@@ -1,0 +1,57 @@
+.index {
+    margin-top: 40px;
+    
+    h2{
+        font-weight: 600;
+       
+    }
+
+    .pagination {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin: 5px 0;
+        p {
+            font-size: 13px;
+            margin-right: 10px;
+        }
+        button {
+            transition: all 0.3s ease;
+            background-color: var(--transparent);
+            border: none;
+            outline: none;
+            margin: 5px 0;
+            height: 30px;
+            width: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: -2px;
+            font-size: 16px;
+            border-radius: 50%;
+            &:hover{
+                cursor: pointer;
+                background-color: rgba(197, 196, 196, 0.582);
+            }
+            
+        }
+    }
+}
+
+@media screen and (max-width:600px) {
+    .index h2{
+        font-size: 20px;
+    }
+    .index .pagination {
+        p{
+            font-size: 11px;
+        }
+
+        button{
+            width: 24px;
+            height: 24px;
+            margin: 5px 3px;
+        }
+        
+    }
+}

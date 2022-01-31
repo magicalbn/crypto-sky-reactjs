@@ -1,0 +1,145 @@
+.crypto-list {
+    .card {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+        align-items: center;
+        margin: 10px 0;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        border-radius: 5px;
+        padding: 20px 10px;
+        transition: all 0.1s ease-in;
+        position: relative;
+        overflow: hidden;
+        &:hover {
+            transform: scale(1.01);
+            &::after {
+                opacity: 1;
+            }
+        }
+        &::after {
+            transition: all 0.3 s ease-in;
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 4px;
+            background-color: var(--secondary-theme);
+            left: 0;
+            opacity: 0;
+            border-radius: 10px;
+        }
+        h3{
+            font-size: 20px;
+        }
+        p {
+            font-size: 15px;
+        }
+        .value {
+            font-weight: 600;
+        }
+        .label {
+            font-size: 13px;
+            color: var(--label-color);
+        }
+        .details-name {
+            margin-left: 30px;
+        }
+
+        .details-current {
+            .gross {
+                font-weight: bold;
+                &.loss {
+                    color: var(--error-color);
+                }
+                &.profit {
+                    color: var(--stocks-green);
+                }
+            }
+        }
+        .details-volume {
+        }
+        .details-more {
+            text-align: center;
+            button {
+                transition: all 0.3s ease-in;
+                opacity: 0.7;
+                background-color: var(--secondary-theme);
+                border: 2px solid var(--secondary-theme);
+                font-size: 14px;
+                padding: 5px;
+                border-radius: 5px;
+                color: var(--dark-text);
+                cursor: pointer;
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .crypto-list {
+        .card {
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            p {
+                font-size: 10px;
+            }
+            h3 {
+                font-size: 15px;
+            }
+            .details-name {
+                margin-left: 10px;
+            }
+            .label{
+                font-size: 12px;
+            }
+
+            .details-volume {
+                display: none;
+            }
+            .details-more {
+                text-align: center;
+                button {
+                    font-size: 10px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .crypto-list {
+        .card {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr ;
+            p {
+                font-size: 10px;
+            }
+            h3 {
+                font-size: 15px;
+            }
+            .label{
+                font-size: 10px;
+            }
+            .details-name {
+                margin-left: 30px;
+                grid-column: 1/3;
+                margin-bottom: 10px;
+            }
+
+            .details-prev, .details-volume, .details-current {
+                margin-left: 40px;
+                display: block;
+            }
+            
+            .details-more {
+                text-align: center;
+               
+                button {
+                    font-size: 8px;
+                    padding: 3px;
+                }
+            }
+        }
+    }
+}
